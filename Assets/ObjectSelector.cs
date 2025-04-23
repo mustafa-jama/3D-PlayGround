@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ObjectSelector : MonoBehaviour
 {
-    private GameObject selectedObject;
+    public static GameObject SelectedObject; // ← Add this line
+
     private Color originalColor;
 
     void Update()
@@ -14,20 +15,17 @@ public class ObjectSelector : MonoBehaviour
             {
                 GameObject hitObject = hit.collider.gameObject;
 
-                // Only select if it's tagged as Selectable
                 if (hitObject.CompareTag("Selectable"))
                 {
-                    // Deselect previous
-                    if (selectedObject != null)
+                    if (SelectedObject != null)
                     {
-                        var prevRenderer = selectedObject.GetComponent<Renderer>();
+                        var prevRenderer = SelectedObject.GetComponent<Renderer>();
                         if (prevRenderer != null)
                             prevRenderer.material.color = originalColor;
                     }
 
-                    // Select new
-                    selectedObject = hitObject;
-                    var renderer = selectedObject.GetComponent<Renderer>();
+                    SelectedObject = hitObject;
+                    var renderer = SelectedObject.GetComponent<Renderer>();
                     if (renderer != null)
                     {
                         originalColor = renderer.material.color;
