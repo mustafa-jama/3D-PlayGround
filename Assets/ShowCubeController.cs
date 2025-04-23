@@ -14,7 +14,10 @@ public class ShowCubeController : MonoBehaviour
             Vector3 spawnPosition = spawnPoint != null ? spawnPoint.position : Vector3.zero;
 
             // Instantiate the cubePrefab at the spawn position
-            Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
+            GameObject newCube = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
+
+            // Tag it as selectable
+            newCube.tag = "Selectable";
         }
     }
 }
