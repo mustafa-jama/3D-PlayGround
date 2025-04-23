@@ -1,21 +1,23 @@
 using UnityEngine;
 
-public class RotateOnRightClick : MonoBehaviour
+public class RotateSelectedObject : MonoBehaviour
 {
-    public float rotationSpeed = 300f; // Speed of rotation
+    public float rotationSpeed = 100f;
 
     void Update()
     {
-        // Check if the right mouse button is held down
-        if (Input.GetMouseButton(1)) // Right mouse button (0 = left, 1 = right, 2 = middle)
+        // Only act if there is a selected object
+        if (ObjectSelector.SelectedObject != null)
         {
-            // Get mouse movement
-            float mouseX = Input.GetAxis("Mouse X"); // Horizontal mouse movement
-            float mouseY = Input.GetAxis("Mouse Y"); // Vertical mouse movement
+            if (Input.GetKey(KeyCode.Q))
+            {
+                ObjectSelector.SelectedObject.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+            }
 
-            // Rotate the cube based on mouse movement
-            transform.Rotate(Vector3.up, -mouseX * rotationSpeed * Time.deltaTime, Space.World); // Rotate around Y-axis
-            transform.Rotate(Vector3.right, mouseY * rotationSpeed * Time.deltaTime, Space.World); // Rotate around X-axis
+            if (Input.GetKey(KeyCode.E))
+            {
+                ObjectSelector.SelectedObject.transform.Rotate(Vector3.up, -rotationSpeed * Time.deltaTime);
+            }
         }
     }
 }
