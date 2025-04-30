@@ -48,14 +48,15 @@ public class CubeMover : MonoBehaviour
 
     private Vector3 GetMouseWorldPosition()
     {
-        // Get the mouse position in screen coordinates
-        Vector3 mouseScreenPos = Input.mousePosition;
+         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Plane plane = new Plane(Vector3.up, new Vector3(0, planeY, 0)); // horizontal plane at Y = planeY
 
-        // Set the depth to the plane's Y position relative to the camera
-        float depth = mainCamera.transform.position.y - planeY;
+        float distance;
+        if (plane.Raycast(ray, out distance))
+        {
+            return ray.GetPoint(distance); // point on the plane where the ray hits
+        }
 
-        // Convert screen position to world position
-        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPos.x, mouseScreenPos.y, depth));
-        return new Vector3(worldPosition.x, planeY, worldPosition.z);
+        return Vector3.zero; // fallback (shouldn't happen in normal use)
     }
 }
