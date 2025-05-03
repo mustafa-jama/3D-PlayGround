@@ -65,11 +65,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/RotateOnRightClick.cs" />
+    <Compile Include="Assets/SceneManager.cs" />
     <Compile Include="Assets/ResizeOnScroll.cs" />
+    <Compile Include="Assets/CameraController.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
+    <Compile Include="Assets/CreateShapePrefabs.cs" />
+    <Compile Include="Assets/ShapeClickHandler.cs" />
     <Compile Include="Assets/CubeMover.cs" />
+    <Compile Include="Assets/FieldOutline.cs" />
     <Compile Include="Assets/ObjectSelector.cs" />
-    <Compile Include="Assets/ShowCubeController.cs" />
+    <Compile Include="Assets/ShapeSpawnerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
