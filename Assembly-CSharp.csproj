@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets/RotateOnRightClick.cs" />
     <Compile Include="Assets/SceneManager.cs" />
+    <Compile Include="Assets/BuildButtonHandler.cs" />
     <Compile Include="Assets/ResizeOnScroll.cs" />
     <Compile Include="Assets/CameraController.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
