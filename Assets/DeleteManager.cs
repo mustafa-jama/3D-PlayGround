@@ -12,22 +12,24 @@ public class DeleteManager : MonoBehaviour
     private Color normalColor = Color.white;
 
     public void ToggleDeleteMode()
+{
+    IsDeleteMode = !IsDeleteMode;
+
+    if (deleteButton != null)
     {
-        IsDeleteMode = !IsDeleteMode;
-
-        // Visual feedback
-        if (deleteButton != null)
+        Image buttonImage = deleteButton.GetComponent<Image>();
+        if (buttonImage != null)
         {
-            ColorBlock cb = deleteButton.colors;
-            cb.normalColor = IsDeleteMode ? activeColor : normalColor;
-            deleteButton.colors = cb;
+            buttonImage.color = IsDeleteMode ? activeColor : normalColor;
         }
-
-        if (statusText != null)
-        {
-            statusText.SetActive(IsDeleteMode);
-        }
-
-        Debug.Log("Delete mode is now: " + IsDeleteMode);
     }
+
+    if (statusText != null)
+    {
+        statusText.SetActive(IsDeleteMode);
+    }
+
+    Debug.Log("Delete mode is now: " + IsDeleteMode);
+}
+
 }
