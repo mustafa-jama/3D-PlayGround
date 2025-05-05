@@ -42,7 +42,18 @@ public class ShapeClickHandler : MonoBehaviour
             case ModeManager.Mode.Paint:
                 if (rend != null)
                 {
-                    rend.material.color = paintColor;
+                    if (ColorTextureSelector.Instance != null)
+                    {
+                        if (ColorTextureSelector.Instance.IsColorSelected)
+                        {
+                            rend.material.color = ColorTextureSelector.Instance.SelectedColor;
+                            rend.material.mainTexture = null;
+                        }
+                        else if (ColorTextureSelector.Instance.SelectedTexture != null)
+                        {
+                            rend.material.mainTexture = ColorTextureSelector.Instance.SelectedTexture;
+                        }
+                    }
                 }
                 break;
         }
