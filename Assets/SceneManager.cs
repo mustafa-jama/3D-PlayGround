@@ -11,6 +11,7 @@ public class SceneManager : MonoBehaviour
     public Button confirmResetButton;
     public Button cancelResetButton;
     public TextMeshProUGUI confirmationText;
+    public CameraController cameraController;
 
     private GameObject selectedObject;
 
@@ -41,6 +42,12 @@ public class SceneManager : MonoBehaviour
         if (cancelResetButton != null)
         {
             cancelResetButton.onClick.AddListener(HideResetConfirmation);
+        }
+
+        // Find camera controller if not assigned
+        if (cameraController == null)
+        {
+            cameraController = Camera.main.GetComponent<CameraController>();
         }
     }
 
@@ -89,6 +96,12 @@ public class SceneManager : MonoBehaviour
         foreach (GameObject obj in objects)
         {
             Destroy(obj);
+        }
+
+        // Reset camera if available
+        if (cameraController != null)
+        {
+            cameraController.ResetCamera();
         }
 
         // Clear selection

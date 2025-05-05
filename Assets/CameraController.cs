@@ -9,6 +9,15 @@ public class CameraController : MonoBehaviour
     public float maxZoom = 50f;
 
     private Vector3 lastMousePosition;
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+
+    void Start()
+    {
+        // Store initial camera position and rotation
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+    }
 
     void Update()
     {
@@ -27,20 +36,19 @@ public class CameraController : MonoBehaviour
     }
 
     void HandleRotation()
-{
-    if (Input.GetMouseButton(1)) // Right mouse button held
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        if (Input.GetMouseButton(1)) // Right mouse button held
+        {
+            float mouseX = Input.GetAxis("Mouse X");
+            float mouseY = Input.GetAxis("Mouse Y");
 
-        Vector3 rotation = transform.eulerAngles;
-        rotation.y += mouseX * rotateSpeed;
-        rotation.x -= mouseY * rotateSpeed;
+            Vector3 rotation = transform.eulerAngles;
+            rotation.y += mouseX * rotateSpeed;
+            rotation.x -= mouseY * rotateSpeed;
 
-        transform.eulerAngles = rotation;
+            transform.eulerAngles = rotation;
+        }
     }
-}
-
 
     void HandleZoom()
     {
@@ -55,5 +63,11 @@ public class CameraController : MonoBehaviour
 
         if (distance > maxZoom)
             transform.position = Vector3.zero + direction * maxZoom;
+    }
+
+    public void ResetCamera()
+    {
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
     }
 }

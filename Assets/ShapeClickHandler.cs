@@ -2,11 +2,49 @@ using UnityEngine;
 
 public class ShapeClickHandler : MonoBehaviour
 {
+    private Renderer rend;
+    private Color originalColor;
+    private Color paintColor = Color.yellow;
+    private float sizeChangeAmount = 0.1f;
+
+    private void Start()
+    {
+        rend = GetComponent<Renderer>();
+        if (rend != null)
+        {
+            originalColor = rend.material.color;
+        }
+    }
+
     void OnMouseDown()
     {
-        if (DeleteManager.IsDeleteMode)
+        if (ModeManager.Instance == null) return;
+
+        switch (ModeManager.Instance.CurrentMode)
         {
-            Destroy(gameObject);
+            case ModeManager.Mode.Delete:
+                Destroy(gameObject);
+                break;
+
+            case ModeManager.Mode.SizeUp:
+                transform.localScale += Vector3.one * sizeChangeAmount;
+                break;
+
+            case ModeManager.Mode.SizeDown:
+                transform.localScale -= Vector3.one * sizeChangeAmount;
+                // Prevent negative scale
+                if (transform.localScale.x < 0.1f)
+                {
+                    transform.localScale = Vector3.one * 0.1f;
+                }
+                break;
+
+            case ModeManager.Mode.Paint:
+                if (rend != null)
+                {
+                    rend.material.color = paintColor;
+                }
+                break;
         }
     }
 }
