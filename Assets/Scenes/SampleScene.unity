@@ -3582,7 +3582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7817f89952a5a4aaa91a9992bbf6afa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trashButton: {fileID: 126114248}
+  trashButton: {fileID: 0}
   resetButton: {fileID: 383940301}
   confirmationDialog: {fileID: 1089891715}
   confirmResetButton: {fileID: 579990856}
