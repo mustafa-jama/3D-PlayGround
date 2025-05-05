@@ -33,6 +33,7 @@ public class ShapeSpawnerController : MonoBehaviour
         {
             Vector3 spawnPosition = spawnPoint != null ? spawnPoint.position : Vector3.zero;
 
+            // Create the shape
             GameObject newShape = Instantiate(prefab, spawnPosition, Quaternion.identity);
             newShape.tag = "Selectable";
 
@@ -40,10 +41,22 @@ public class ShapeSpawnerController : MonoBehaviour
             var clickHandler = newShape.AddComponent<ShapeClickHandler>();
             //clickHandler.sceneManager = sceneManager;
 
+            // Set the color
             Renderer rend = newShape.GetComponent<Renderer>();
             if (rend != null)
             {
                 rend.material.color = defaultColor;
+            }
+
+            // Adjust position to be fully above ground
+            Collider collider = newShape.GetComponent<Collider>();
+            if (collider != null)
+            {
+                // Get the bounds of the collider
+                Bounds bounds = collider.bounds;
+                // Move the object up by half its height
+                float heightOffset = bounds.extents.y;
+                newShape.transform.position += Vector3.up * heightOffset;
             }
         }
     }

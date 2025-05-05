@@ -21,7 +21,6 @@ public class CreateShapePrefabs : MonoBehaviour
         // Add required components
         shape.AddComponent<CubeMover>();
         shape.AddComponent<RotateSelectedObject>();
-        shape.AddComponent<ResizeOnScroll>();
 
         // Set up collider
         Collider collider = shape.GetComponent<Collider>();
