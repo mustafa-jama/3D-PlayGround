@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1159670958793319936}
   - component: {fileID: 3267629014189483871}
   - component: {fileID: 4029232490867380993}
-  - component: {fileID: 3293497432228342849}
+  - component: {fileID: 2739630555236160296}
   m_Layer: 0
   m_Name: DraggableCube
   m_TagString: Selectable
@@ -154,7 +154,7 @@ MonoBehaviour:
   resizeSpeed: 1.2
   minSize: 0.5
   maxSize: 3
---- !u!114 &3293497432228342849
+--- !u!114 &2739630555236160296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,9 +163,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4127696379759344206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0772ff0b993aedb45b634511924588f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 92412878572634f358e86ef4a14c5187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colors:
-  - {r: 0.7152901, g: 0.74202085, b: 0.8867924, a: 0}
-  - {r: 0.6037736, g: 0, b: 0, a: 0}

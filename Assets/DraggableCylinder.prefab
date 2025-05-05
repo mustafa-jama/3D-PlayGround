@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6766957390808412142}
   - component: {fileID: 9213533844403595862}
   - component: {fileID: 4950750852568266572}
+  - component: {fileID: 2342026342081484863}
   m_Layer: 0
   m_Name: DraggableCylinder
   m_TagString: Selectable
@@ -155,3 +156,15 @@ MonoBehaviour:
   resizeSpeed: 0.1
   minSize: 0.5
   maxSize: 3
+--- !u!114 &2342026342081484863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559918803389393494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92412878572634f358e86ef4a14c5187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -74,6 +74,7 @@
     <Compile Include="Assets/ShapeClickHandler.cs" />
     <Compile Include="Assets/CubeMover.cs" />
     <Compile Include="Assets/FieldOutline.cs" />
+    <Compile Include="Assets/DeleteManager.cs" />
     <Compile Include="Assets/ObjectSelector.cs" />
     <Compile Include="Assets/ShapeSpawnerController.cs" />
   </ItemGroup>

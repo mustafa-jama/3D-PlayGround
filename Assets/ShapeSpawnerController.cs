@@ -38,7 +38,7 @@ public class ShapeSpawnerController : MonoBehaviour
 
             // Add click handler to the shape
             var clickHandler = newShape.AddComponent<ShapeClickHandler>();
-            clickHandler.sceneManager = sceneManager;
+            //clickHandler.sceneManager = sceneManager;
 
             Renderer rend = newShape.GetComponent<Renderer>();
             if (rend != null)
