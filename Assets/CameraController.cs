@@ -27,13 +27,20 @@ public class CameraController : MonoBehaviour
     }
 
     void HandleMovement()
-    {
-        float moveX = Input.GetAxis("Horizontal"); // A/D or Left/Right
-        float moveZ = Input.GetAxis("Vertical");   // W/S or Up/Down
+{
+    float moveX = Input.GetAxis("Horizontal");
+    float moveZ = Input.GetAxis("Vertical");
+    float moveY = 0f;
 
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
-        transform.position += move * moveSpeed * Time.deltaTime;
-    }
+    if (Input.GetKey(KeyCode.Q))
+        moveY = 1f;
+    else if (Input.GetKey(KeyCode.E))
+        moveY = -1f;
+
+    Vector3 move = transform.right * moveX + transform.forward * moveZ + Vector3.up * moveY;
+    transform.position += move * moveSpeed * Time.deltaTime;
+}
+
 
     void HandleRotation()
     {
@@ -55,14 +62,15 @@ public class CameraController : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         Vector3 direction = transform.forward;
 
-        transform.position += direction * scroll * zoomSpeed;
-        float distance = Vector3.Distance(transform.position, Vector3.zero); // zoom centered on world origin
+        float scrollAmount = scroll * zoomSpeed;
+        Vector3 newPosition = transform.position + direction * scrollAmount;
 
-        if (distance < minZoom)
-            transform.position = Vector3.zero + direction * minZoom;
-
-        if (distance > maxZoom)
-            transform.position = Vector3.zero + direction * maxZoom;
+        // Clamp distance from initial position
+        float distance = Vector3.Distance(newPosition, initialPosition);
+        if (distance >= minZoom && distance <= maxZoom)
+        {
+            transform.position = newPosition;
+        }
     }
 
     public void ResetCamera()
