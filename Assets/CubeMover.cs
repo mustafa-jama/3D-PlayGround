@@ -12,7 +12,6 @@ public class CubeMover : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        planeY = transform.position.y; // Assume the cube starts on the plane
     }
 
     void OnMouseDown()
@@ -24,7 +23,9 @@ public class CubeMover : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (isDragging)
+        if (isDragging && ModeManager.Instance != null &&
+            ModeManager.Instance.CurrentMode != ModeManager.Mode.SizeUp &&
+            ModeManager.Instance.CurrentMode != ModeManager.Mode.SizeDown)
         {
             // Get the target position based on the mouse position
             Vector3 targetPosition = GetMouseWorldPosition() + offset;
@@ -33,8 +34,8 @@ public class CubeMover : MonoBehaviour
             targetPosition.x = Mathf.Clamp(targetPosition.x, -planeWidth / 2, planeWidth / 2);
             targetPosition.z = Mathf.Clamp(targetPosition.z, -planeHeight / 2, planeHeight / 2);
 
-            // Keep the cube at the plane's Y position
-            targetPosition.y = planeY;
+            // Preserve the original Y position
+            targetPosition.y = transform.position.y;
 
             // Update the cube's position
             transform.position = targetPosition;
@@ -48,7 +49,7 @@ public class CubeMover : MonoBehaviour
 
     private Vector3 GetMouseWorldPosition()
     {
-         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         Plane plane = new Plane(Vector3.up, new Vector3(0, planeY, 0)); // horizontal plane at Y = planeY
 
         float distance;
