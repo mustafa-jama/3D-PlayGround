@@ -33,7 +33,14 @@ public class ShapeClickHandler : MonoBehaviour
 
                     // Adjust position to keep the bottom of the object at the same level
                     float scaleChange = transform.localScale.y - oldScale.y;
-                    transform.position += Vector3.up * (scaleChange / 2);
+                    if (gameObject.name.ToLower().Contains("cylinder"))
+                    {
+                        transform.position += Vector3.up * scaleChange;
+                    }
+                    else
+                    {
+                        transform.position += Vector3.up * (scaleChange / 2);
+                    }
                     break;
                 }
 
@@ -50,7 +57,14 @@ public class ShapeClickHandler : MonoBehaviour
 
                     // Adjust position to keep the bottom of the object at the same level
                     float scaleChange = transform.localScale.y - oldScale.y;
-                    transform.position += Vector3.up * (scaleChange / 2);
+                    if (gameObject.name.ToLower().Contains("cylinder"))
+                    {
+                        transform.position += Vector3.up * scaleChange;
+                    }
+                    else
+                    {
+                        transform.position += Vector3.up * (scaleChange / 2);
+                    }
                     break;
                 }
 

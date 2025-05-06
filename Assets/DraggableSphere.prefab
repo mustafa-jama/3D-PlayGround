@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2483278163593459350}
   - component: {fileID: 278168842209598841}
   - component: {fileID: 187378273232173320}
-  - component: {fileID: 1698985413536924261}
   - component: {fileID: 6047774367287473583}
   m_Layer: 0
   m_Name: DraggableSphere
@@ -90,7 +89,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a10e1f4628449479590259afdf1ef64f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,21 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
---- !u!114 &1698985413536924261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853266933581925498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fd45d282c0a5c649b0a5e2b7c03014a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resizeSpeed: 0.1
-  minSize: 0.5
-  maxSize: 3
 --- !u!114 &6047774367287473583
 MonoBehaviour:
   m_ObjectHideFlags: 0
