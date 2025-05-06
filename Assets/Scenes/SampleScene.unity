@@ -840,7 +840,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 115.91}
-  m_SizeDelta: {x: 400, y: 50}
+  m_SizeDelta: {x: 400, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179774160
 MonoBehaviour:
@@ -2670,7 +2670,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 62.9}
-  m_SizeDelta: {x: 400, y: 50}
+  m_SizeDelta: {x: 400, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623980431
 MonoBehaviour:
@@ -2696,36 +2696,44 @@ MonoBehaviour:
 
     - Left Click: Select/Move objects
 
-    - Right Click: Rotate
-    objects
+    - Right Click (Hold):
+    Rotate camera
 
-    - Mouse Wheel: Zoom camera
+    - Mouse Wheel: Zoom camera in/out
 
-    - Middle Mouse Button: Pan camera
+    - Middle Mouse Button
+    (Hold): Pan camera
+
+    - W/A/S/D: Move camera forward/left/back/right
+
+    -
+    Q: Move camera up
+
+    - E: Move camera down
 
 
     Tools:
 
-    -
-    Build: Create new shapes
+    - Build: Create
+    new shapes
 
     - Delete: Remove objects
 
-    - Size Up/Down: Change
-    object size
+    - Size Up/Down: Change object size
 
-    - Paint: Change object color/texture
+    -
+    Paint: Change object color/texture
 
 
     Tips:
 
-    - Use
-    the shape panel to select different shapes
+    - Use the shape panel to
+    select different shapes
 
     - Click and drag to move objects
 
-    -
-    Use the color picker to customize objects"'
+    - Use the
+    color picker to customize objects'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4547,8 +4555,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 220, y: 130}
-  m_SizeDelta: {x: 40, y: 30}
+  m_AnchoredPosition: {x: 220, y: 135}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1119194879
 MonoBehaviour:
@@ -6500,7 +6508,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 300}
+  m_SizeDelta: {x: 500, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1586820626
 MonoBehaviour:
